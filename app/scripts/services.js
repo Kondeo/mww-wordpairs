@@ -1,21 +1,21 @@
-angular.module('starter')
-  .factory('User', ['$resource', function($resource, config) {
+angular.module('starter.services', ['ngResource'])
+  .factory('User', ['$resource', function($resource) {
 
-    return $resource( apiEndpoint + 'user/:Id',
+    return $resource( 'http://localhost/webtest/' + 'users.php/:Id',
         { Id: '@Id' }, {
 
         } );
 
 }]);
 
-angular.module('starter')
-  .factory('Book', ['$resource', function($resource, config) {
+angular.module('starter.services', ['ngResource'])
+  .factory('Book', ['$resource', function($resource) {
 
-    return $resource( apiEndpoint + 'users.php/page/:Id',
+    return $resource( 'http://localhost/webtest/' + 'users.php/page/:Id',
         { Id: '@Id' }, {
             get: {
                 method: 'GET',
-                params: { Id: '@pagenum' },
+                params: { Id: '@Id' },
                 isArray: false
             }
 

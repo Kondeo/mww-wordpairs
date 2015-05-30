@@ -45,5 +45,5 @@ angular.module('starter.controllers', [])
 })
 
 .controller('PageCtrl', function($scope, $stateParams, Book) {
-    $scope.pagecontents = Book.get({pagenum:$stateParams.page});
+    $scope.pagecontents = Book.get({Id:$stateParams.page});
 });
