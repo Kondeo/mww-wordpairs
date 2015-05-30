@@ -35,12 +35,12 @@ angular.module('starter.controllers', [])
 
 .controller('IndexCtrl', function($scope) {
   $scope.indexes = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
+    { title: 'Example index 1', page: '5', id: 1 },
+    { title: 'This is a linked index', page: 9, id: 2 },
+    { title: 'Another linked index', page: 15, id: 3 },
+    { title: 'More', page: 22, id: 4 },
+    { title: 'And more', page: 25, id: 5 },
+    { title: 'And last', page: 34, id: 6 }
   ];
 })
 
