@@ -44,6 +44,16 @@ angular.module('starter.controllers', [])
   ];
 })
 
-.controller('PageCtrl', function($scope, $stateParams, Book) {
-    $scope.pagecontents = Book.get({Id:$stateParams.page});
+.controller('PageCtrl', function($scope, $stateParams, Book, $http, $sce) {
+    $http.get('http://localhost:80/webtest/users.php/page/5').
+      success(function(data, status, headers, config) {
+        // this callback will be called asynchronously
+        // when the response is available
+        $scope.pagecontents = data;
+        $scope.trustedHtml = $sce.trustAsHtml($scope.pagecontents);
+      }).
+      error(function(data, status, headers, config) {
+        // called asynchronously if an error occurs
+        // or server returns response with an error status.
+    });
 });
