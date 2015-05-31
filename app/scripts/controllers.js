@@ -45,7 +45,8 @@ angular.module('starter.controllers', [])
 })
 
 .controller('PageCtrl', function($scope, $stateParams, Book, $http, $sce) {
-    $http.get('http://localhost:80/webtest/users.php/page/5').
+    $scope.pagenum = $stateParams.page;
+    $http.get('http://localhost:80/webtest/users.php/page/' + $stateParams.page).
       success(function(data, status, headers, config) {
         // this callback will be called asynchronously
         // when the response is available
