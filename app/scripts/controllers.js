@@ -45,5 +45,31 @@ angular.module('starter.controllers', [])
 })
 
 .controller('PageCtrl', function($scope, $stateParams, Book) {
-    $scope.pagecontents = Book.get({Id:$stateParams.page});
+  //No longer using this method
+    //$scope.pagecontents = Book.get({Id:$stateParams.page});
+
+    //Our page number, gets from stateparams
+    $scope.pagenumber = $stateParams.page;
+
+    /*
+    //Function to set the size of our frame on page load
+    $scope.$on('$viewContentLoaded', function() {
+      //set our iframe height to it's content on load
+      //First get our iframe element
+      var page = document.getElementById('pageFrame');
+      //Our varialbes for our dimensions
+      var newHeight;
+      var newWidth;
+
+      //set our dimensions to our page content
+      newHeight = page.contentWindow.document.body.scrollHeight;
+      newWidth = page.contentWindow.document.body.scrollWidth;
+
+      page.height= 5000 + "px";
+      page.width= (newWidth) + "px";
+
+      });
+
+      Method to dynamically set iframe height
+      */
 });
