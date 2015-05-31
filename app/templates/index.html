@@ -2,7 +2,9 @@
   <ion-content>
     <ion-list>
       <ion-item ng-repeat="index in indexes" href="#/app/page/{{index.page}}">
-        {{index.title}}
+        <!-- Display sub chapters using indentation -->
+        <div ng-if="index.indented==0">{{index.title}}</div>
+        <div ng-if="index.indented==1" style="padding-left: 50px;">{{index.title}}</div>
       </ion-item>
     </ion-list>
   </ion-content>
