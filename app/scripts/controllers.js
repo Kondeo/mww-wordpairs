@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout, Book) {
+.controller('AppCtrl', function($scope, $ionicModal, $ionicPopup, $timeout, Book) {
   // Form data for the login modal
   $scope.loginData = {};
 
@@ -69,6 +69,16 @@ angular.module('starter.controllers', [])
     //Now close the modal
     $scope.gotomodal.hide();
   };
+
+  // go to the listing
+  $scope.listing = function() {
+    //Go to the desired url
+    location.replace('/#/app/listing/');
+
+    //Now close the modal
+    $scope.gotomodal.hide();
+  };
+
 })
 
 .controller('IndexCtrl', function($scope) {
