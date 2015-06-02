@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout, User) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, Book) {
   // Form data for the login modal
   $scope.loginData = {};
 
@@ -40,7 +40,7 @@ angular.module('starter.controllers', [])
   $scope.doLogin = function() {
     console.log('Doing login', $scope.loginData);
 
-    $scope.loginFinish = User.login($scope.loginData, function() {
+    $scope.loginFinish = Book.login($scope.loginData, function() {
         //Determine response from server
         if (!$scope.loginfinish.result) {
             alert("Sorry, that isn't the correct username and password.");
