@@ -68,7 +68,7 @@ angular.module('starter.controllers', [])
   ];
 })
 
-.controller('PageCtrl', function($scope, $stateParams, Book, $http, $sce, $state) {
+.controller('PageCtrl', function($scope, $stateParams, Book, $http, $sce, $state, $ionicHistory) {
     $scope.pagenum = $stateParams.page;
     $http.get('http://a56dbb95.ngrok.io/webtest/users.php/page/' + $stateParams.page).
       success(function(data, status, headers, config) {
@@ -85,5 +85,8 @@ angular.module('starter.controllers', [])
         $scope.temp = parseInt($stateParams.page) + 1;
         $scope.temp = '/#/app/page/' + $scope.temp;
         location.replace($scope.temp);
+    }
+    $scope.goToPrev = function(){
+        $ionicHistory.goBack();
     }
 });
