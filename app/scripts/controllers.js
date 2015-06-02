@@ -6,19 +6,34 @@ angular.module('starter.controllers', [])
 
   // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/login.html', {
+    backdropClickToClose: false,
+    id: 1,
     scope: $scope
   }).then(function(modal) {
     $scope.modal = modal;
   });
 
-  // Triggered in the login modal to close it
-  $scope.closeLogin = function() {
-    $scope.modal.hide();
-  };
+  // Create the go to page modal that we will use later
+  $ionicModal.fromTemplateUrl('templates/gotopage.html', {
+    id: 2,
+    scope: $scope
+  }).then(function(modal) {
+    $scope.gotomodal = modal;
+  });
 
   // Open the login modal
   $scope.login = function() {
     $scope.modal.show();
+  };
+
+  // Open the login modal
+  $scope.goToPage = function() {
+    $scope.gotomodal.show();
+  };
+
+  // Triggered in the login modal to close it
+  $scope.closeLogin = function() {
+    $scope.modal.hide();
   };
 
   // Perform the login action when the user submits the login form
