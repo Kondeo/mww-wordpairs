@@ -1,8 +1,11 @@
 <ion-view view-title="Page {{pagenum}}">
   <ion-content>
-      <button ng-click="goToNext()" class="button button-positive">
-  button-positive
-</button>
     <div style="padding: 10px;" ng-bind-html="trustedHtml"></div>
+    <button ng-click="goToNext()" class="button button-positive button-next">
+    button-positive
+    </button>
+    <button ng-click="goToNext()" class="button button-positive button-back">
+    button-positive
+    </button>
   </ion-content>
 </ion-view>
