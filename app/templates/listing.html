@@ -1,13 +1,9 @@
-<ion-view view-title="Index">
+<ion-view view-title="Alphabetical Listing">
   <ion-content>
     <ion-list>
       <ion-item ng-repeat="index in indexes" href="#/app/page/{{index.page}}">
         <!-- Display sub chapters using indentation -->
         <div>{{index.title}}</div>
-      </ion-item>
-      <ion-item href="#/app/listing">
-        <!-- Display sub chapters using indentation -->
-        <div>Alphabetical Listing</div>
       </ion-item>
     </ion-list>
   </ion-content>

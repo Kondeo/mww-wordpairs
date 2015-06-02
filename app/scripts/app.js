@@ -40,6 +40,16 @@ angular.module('starter', ['ionic', 'config', 'starter.controllers', 'starter.se
     }
   })
 
+  .state('app.listing', {
+    url: "/listing",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/listing.html",
+        controller: 'ListingCtrl'
+      }
+    }
+  })
+
   .state('app.single', {
     url: "/page/:page",
     views: {

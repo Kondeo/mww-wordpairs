@@ -73,10 +73,7 @@ angular.module('starter.controllers', [])
   // go to the listing
   $scope.listing = function() {
     //Go to the desired url
-    location.replace('/#/app/listing/');
-
-    //Now close the modal
-    $scope.gotomodal.hide();
+    location.replace('/#/app/listing');
   };
 
 })
@@ -111,8 +108,36 @@ angular.module('starter.controllers', [])
     { title: 'Chapter 22: The Letter V', page: 324, id: 26, indented: 0 },
     { title: 'Chapter 23: The Letter W', page: 329, id: 27, indented: 0 },
     { title: 'Chapter 24: The Letter Y', page: 340, id: 28, indented: 0 },
-    { title: 'Chapter 25: One Word/Two Words', page: 341, id: 29, indented: 0 },
-    { title: 'Alphabetical Listing of Words', page: 347, id: 30, indented: 0 }
+    { title: 'Chapter 25: One Word/Two Words', page: 341, id: 29, indented: 0 }
+  ];
+})
+
+.controller('ListingCtrl', function($scope) {
+  $scope.indexes = [
+    { title: 'A', page: 1, id: 1},
+    { title: 'B', page: 1, id: 2},
+    { title: 'C', page: 1, id: 3},
+    { title: 'D', page: 1, id: 4},
+    { title: 'E', page: 1, id: 5},
+    { title: 'F', page: 1, id: 6},
+    { title: 'G', page: 1, id: 7},
+    { title: 'H', page: 1, id: 8},
+    { title: 'I', page: 1, id: 9},
+    { title: 'J', page: 1, id: 10},
+    { title: 'K', page: 1, id: 11},
+    { title: 'L', page: 1, id: 12},
+    { title: 'M', page: 1, id: 13},
+    { title: 'N', page: 1, id: 14},
+    { title: 'O', page: 1, id: 15},
+    { title: 'P', page: 1, id: 16},
+    { title: 'Q', page: 1, id: 17},
+    { title: 'R', page: 1, id: 18},
+    { title: 'S', page: 1, id: 19},
+    { title: 'T', page: 1, id: 20},
+    { title: 'U', page: 1, id: 21},
+    { title: 'V', page: 1, id: 22},
+    { title: 'W', page: 1, id: 23},
+    { title: 'Y', page: 1, id: 24}
   ];
 })
 
