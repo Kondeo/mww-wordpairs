@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, User) {
   // Form data for the login modal
   $scope.loginData = {};
 
@@ -25,11 +25,16 @@ angular.module('starter.controllers', [])
   $scope.doLogin = function() {
     console.log('Doing login', $scope.loginData);
 
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
-    $timeout(function() {
-      $scope.closeLogin();
-    }, 1000);
+    $scope.loginFinish = User.login($scope.loginData, function() {
+        //Determine response from server
+        if (!$scope.loginfinish.result) {
+            alert("Sorry, that isn't the correct username and password.");
+        } else {
+            //Store the token from the server for future use
+            document.cookie = "session_token=" + $scope.loginfinish.result.session_token + "; expires=Sun, 18 Jan 2037 12:00:00 GMT";
+            $scope.closeLogin();
+        }
+    });
   };
 })
 
