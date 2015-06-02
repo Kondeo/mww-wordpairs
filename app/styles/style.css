@@ -1,1 +1,14 @@
 /* Empty. Add your own CSS if you like */
+.button-next {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    margin: 20px;
+}
+
+.button-back {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    margin: 20px;
+}
