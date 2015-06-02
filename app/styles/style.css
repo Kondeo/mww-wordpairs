@@ -12,3 +12,8 @@
     bottom: 0px;
     margin: 20px;
 }
+
+.book-content {
+    padding: 10px !important;
+    padding-bottom: 40px !important;
+}

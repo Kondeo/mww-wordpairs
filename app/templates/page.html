@@ -1,11 +1,11 @@
 <ion-view view-title="Page {{pagenum}}">
   <ion-content>
-    <div style="padding: 10px;" ng-bind-html="trustedHtml"></div>
-    <button ng-click="goToNext()" class="button button-positive button-next">
-    button-positive
+    <div class="book-content" ng-bind-html="trustedHtml"></div>
+    <button ng-click="goToNext()" class="button button-positive button-next icon-right ion-chevron-right">
+    Next
     </button>
-    <button ng-click="goToNext()" class="button button-positive button-back">
-    button-positive
+    <button ng-click="goToPrev()" class="button button-positive button-back icon-left ion-chevron-left">
+    Back
     </button>
   </ion-content>
 </ion-view>
