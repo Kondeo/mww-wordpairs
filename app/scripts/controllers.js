@@ -76,6 +76,21 @@ angular.module('starter.controllers', [])
     location.replace('/#/app/listing');
   };
 
+  //Function to check if we are logged in
+  $scope.loggedIn = function()
+  {
+    //attempt to grab our cookie
+    var cookie = document.cookie;
+    if(cookie != null)
+    {
+      return false;
+    }
+    else
+    {
+      return true;
+    }
+  }
+
 })
 
 .controller('IndexCtrl', function($scope) {
