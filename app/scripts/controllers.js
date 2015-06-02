@@ -44,7 +44,7 @@ angular.module('starter.controllers', [])
   ];
 })
 
-.controller('PageCtrl', function($scope, $stateParams, Book, $http, $sce) {
+.controller('PageCtrl', function($scope, $stateParams, Book, $http, $sce, $state) {
     $scope.pagenum = $stateParams.page;
     $http.get('http://localhost:80/webtest/users.php/page/' + $stateParams.page).
       success(function(data, status, headers, config) {
@@ -57,4 +57,9 @@ angular.module('starter.controllers', [])
         // called asynchronously if an error occurs
         // or server returns response with an error status.
     });
+    $scope.goToNext = function(){
+        $scope.temp = parseInt($stateParams.page) + 1;
+        $scope.temp = '/#/app/page/' + $scope.temp;
+        location.replace($scope.temp);
+    }
 });
