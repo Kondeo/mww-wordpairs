@@ -129,7 +129,7 @@ angular.module('starter.controllers', [])
 
 .controller('ListingCtrl', function($scope) {
   $scope.indexes = [
-    { title: 'A', page: 1, id: 1},
+    { title: 'A', page: 347, id: 1},
     { title: 'B', page: 1, id: 2},
     { title: 'C', page: 1, id: 3},
     { title: 'D', page: 1, id: 4},
@@ -158,7 +158,7 @@ angular.module('starter.controllers', [])
 
 .controller('PageCtrl', function($scope, $stateParams, Book, $http, $sce, $state, $ionicHistory) {
     $scope.pagenum = $stateParams.page;
-    $http.get('http://a56dbb95.ngrok.io/webtest/users.php/page/' + $stateParams.page).
+    $http.get('http://0ce384c6.ngrok.io/webtest/users.php/page/' + $stateParams.page).
       success(function(data, status, headers, config) {
         // this callback will be called asynchronously
         // when the response is available
