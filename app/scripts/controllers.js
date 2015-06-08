@@ -46,15 +46,14 @@ angular.module('starter.controllers', [])
 
   // Perform the login action when the user submits the login form
   $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
 
     $scope.loginFinish = Book.login($scope.loginData, function() {
         //Determine response from server
-        if (!$scope.loginfinish.result) {
+        if (!$scope.loginFinish.result) {
             alert("Sorry, that isn't the correct username and password.");
         } else {
             //Store the token from the server for future use
-            document.cookie = "session_token=" + $scope.loginfinish.result.session_token + "; expires=Sun, 18 Jan 2037 12:00:00 GMT";
+            document.cookie = "session_token=" + $scope.loginFinish.result.session_token + "; expires=Sun, 18 Jan 2037 12:00:00 GMT";
             $scope.closeLogin();
         }
     });
