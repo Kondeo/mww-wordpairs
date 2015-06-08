@@ -94,8 +94,6 @@ angular.module('starter.controllers', [])
   //Check if we are logged in, if not, force the login popup
     $scope.init = function () {
 
-        //attempt to grab our cookie
-        var cookie = document.cookie;
         if(!$scope.loggedIn())
         {
             $scope.modal.show();
@@ -176,6 +174,10 @@ angular.module('starter.controllers', [])
   ];
 })
 
+.controller('RegisterCtrl', function($scope) {
+
+})
+
 .controller('PageCtrl', function($scope, $stateParams, Book, $http, $sce, $state, $ionicHistory) {
     $scope.pagenum = $stateParams.page;
     $http.get('http://0ce384c6.ngrok.io/webtest/users.php/page/' + $stateParams.page).
@@ -185,6 +187,10 @@ angular.module('starter.controllers', [])
         $scope.pagecontents = data;
         $scope.trustedHtml = $sce.trustAsHtml($scope.pagecontents);
       }).
+      success(function (status, data, response, header) {
+          alert(response);
+      })
+      .
       error(function(data, status, headers, config) {
         // called asynchronously if an error occurs
         // or server returns response with an error status.
