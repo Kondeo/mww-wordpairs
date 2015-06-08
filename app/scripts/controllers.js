@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $ionicPopup, $timeout, Book) {
+.controller('AppCtrl', function($scope, $ionicModal, $ionicPlatform, $timeout, Book) {
   // Form data for the login modal
   $scope.loginData = {};
 
@@ -80,15 +80,36 @@ angular.module('starter.controllers', [])
   {
     //attempt to grab our cookie
     var cookie = document.cookie;
-    if(cookie != null)
-    {
-      return false;
-    }
-    else
+    if(cookie != "")
     {
       return true;
     }
+    else
+    {
+      return false;
+    }
   }
+
+  // at the bottom of your controller
+  //Check if we are logged in, if not, force the login popup
+    $scope.init = function () {
+
+        //attempt to grab our cookie
+        var cookie = document.cookie;
+        if(!$scope.loggedIn())
+        {
+            $scope.modal.show();
+        }
+    };
+
+    //Load function on page load
+    $ionicPlatform.ready(function(){
+        //timeout for a second then check if we are logged in
+        $timeout( function()
+        {
+            $scope.init();
+        }, 1000);
+    });
 
 })
 
