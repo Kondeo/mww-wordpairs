@@ -58,6 +58,16 @@ angular.module('starter', ['ionic', 'config', 'starter.controllers', 'starter.se
         controller: 'PageCtrl'
       }
     }
+  })
+
+  .state('app.register', {
+    url: "/register",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/register.html",
+        controller: 'RegisterCtrl'
+      }
+    }
   });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/index');

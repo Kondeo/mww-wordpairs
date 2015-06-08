@@ -96,7 +96,7 @@ angular.module('starter.controllers', [])
 
         if(!$scope.loggedIn())
         {
-            $scope.modal.show();
+            //$scope.modal.show();
         }
     };
 
