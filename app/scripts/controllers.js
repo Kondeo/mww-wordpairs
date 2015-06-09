@@ -174,13 +174,62 @@ angular.module('starter.controllers', [])
   ];
 })
 
-.controller('RegisterCtrl', function($scope) {
+.controller('RegisterCtrl', function($scope, $location, Book) {
+    // Form data for the register controller
+    $scope.registerData = {};
+
+    // Perform the login action when the user submits the login form
+    $scope.doRegister = function() {
+        
+        //Check for empty fields
+        if($scope.registerData.email == null ||
+        $scope.registerData.username == null ||
+        $scope.registerData.password == null ||
+        $scope.registerData.confirmPassword == null)
+        {
+            alert("Please complete all fields!");
+        }
+        //Check for non matching passwords
+        else if($scope.registerData.password != $scope.registerData.confirmPassword)
+        {
+            alert("The passwords do not match!");
+        }
+        //Check email
+        else if($scope.registerData.email.indexOf("@") == -1)
+        {
+            alert("Please enter a valid E-mail Adress!");
+        }
+        //Send to backend
+        else
+        {
+
+            $scope.registerFinish = Book.register($scope.registerData, function() {
+                //Determine response from server
+                if ($scope.registerFinish.error) {
+                    if($scope.registerFinish.error.errorid == '22')
+                    {
+                        alert("Sorry, that username already exists.");
+                    }
+                    else if($scope.registerFinish.error.errorid == '23')
+                    {
+                        alert("Sorry, you have not purchased the software.");
+                    }
+                }
+                else
+                {
+                    //Store the token from the server for future use
+                    document.cookie = "session_token=" + $scope.loginFinish.result.session_token + "; expires=Sun, 18 Jan 2037 12:00:00 GMT";
+                    $location.path("/");
+                }
+            });
+        }
+    }
 
 })
 
 .controller('PageCtrl', function($scope, $stateParams, Book, $http, $sce, $state, $ionicHistory) {
     $scope.pagenum = $stateParams.page;
-    $http.get('http://0ce384c6.ngrok.io/webtest/users.php/page/' + $stateParams.page).
+    $http.get('http://dev.kondeo.com/mwwwordpairs/backend/' + $stateParams.page).
       success(function(data, status, headers, config) {
         // this callback will be called asynchronously
         // when the response is available
