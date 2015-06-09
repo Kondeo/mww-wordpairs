@@ -234,7 +234,7 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('PageCtrl', function($scope, $stateParams, Book, $http, $sce, $state, $ionicHistory) {
+.controller('PageCtrl', function($scope, $stateParams, Book, $location, $http, $sce, $state, $ionicHistory) {
     $scope.pagenum = $stateParams.page;
     var cookie = getCookie("session_token");
     $http.get('http://dev.kondeo.com/mwwwordpairs/backend/users.php/page/' + $stateParams.page + "/" + cookie).
@@ -255,7 +255,8 @@ angular.module('starter.controllers', [])
     $scope.goToNext = function(){
         $scope.temp = parseInt($stateParams.page) + 1;
         $scope.temp = '/#/app/page/' + $scope.temp;
-        location.replace($scope.temp);
+
+        $location.replace($scope.temp);
     }
     $scope.goToPrev = function(){
         $ionicHistory.goBack();
