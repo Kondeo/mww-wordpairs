@@ -96,7 +96,7 @@ angular.module('starter.controllers', [])
 
         if(!$scope.loggedIn())
         {
-            //$scope.modal.show();
+            $scope.modal.show();
         }
     };
 
@@ -180,7 +180,7 @@ angular.module('starter.controllers', [])
 
     // Perform the login action when the user submits the login form
     $scope.doRegister = function() {
-        
+
         //Check for empty fields
         if($scope.registerData.email == null ||
         $scope.registerData.username == null ||
@@ -218,7 +218,7 @@ angular.module('starter.controllers', [])
                 else
                 {
                     //Store the token from the server for future use
-                    document.cookie = "session_token=" + $scope.loginFinish.result.session_token + "; expires=Sun, 18 Jan 2037 12:00:00 GMT";
+                    document.cookie = "session_token=" + $scope.registerFinish.result.session_token + "; expires=Sun, 18 Jan 2037 12:00:00 GMT";
                     $location.path("/");
                 }
             });
