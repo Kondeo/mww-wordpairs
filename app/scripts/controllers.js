@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $ionicPlatform, $timeout, Book) {
+.controller('AppCtrl', function($scope, $ionicModal, $ionicPlatform, $timeout, $location, Book) {
   // Form data for the login modal
   $scope.loginData = {};
 
@@ -65,8 +65,8 @@ angular.module('starter.controllers', [])
   // Perform the find page
   $scope.goToPageNum = function() {
     //Go to the desired url
-    $scope.temp = '/#/app/page/' + $scope.page.number;
-    location.replace($scope.temp);
+    $scope.temp = 'app/page/' + $scope.page.number;
+    location.path($scope.temp);
 
     //Now close the modal
     $scope.gotomodal.hide();
@@ -75,7 +75,7 @@ angular.module('starter.controllers', [])
   // go to the listing
   $scope.listing = function() {
     //Go to the desired url
-    location.replace('/#/app/listing');
+    $location.path('app/listing');
   };
 
   //Function to check if we are logged in
@@ -225,7 +225,7 @@ angular.module('starter.controllers', [])
                 {
                     //Store the token from the server for future use
                     document.cookie = "session_token=" + $scope.registerFinish.result.session_token + "; expires=Sun, 18 Jan 2037 12:00:00 GMT";
-                    $location.path("/");
+                    $location.path("#/");
                     $scope.register = false;
                 }
             });
@@ -263,9 +263,9 @@ angular.module('starter.controllers', [])
     });
     $scope.goToNext = function(){
         $scope.temp = parseInt($stateParams.page) + 1;
-        $scope.temp = '/#/app/page/' + $scope.temp;
+        $scope.temp = 'app/page/' + $scope.temp;
 
-        $location.replace($scope.temp);
+        $location.path($scope.temp);
     }
     $scope.goToPrev = function(){
         $ionicHistory.goBack();
