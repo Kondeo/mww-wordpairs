@@ -241,13 +241,22 @@ angular.module('starter.controllers', [])
       success(function(data, status, headers, config) {
         // this callback will be called asynchronously
         // when the response is available
-        $scope.pagecontents = data;
-        $scope.trustedHtml = $sce.trustAsHtml($scope.pagecontents);
+        //Check for any errors
+        if(data.error)
+        {
+            if(data.error.errorid == '12')
+            {
+                alert("Session token is no longer valid, please login!");
+                $scope.login();
+            }
+        }
+        else
+        {
+            //Then display the page
+            $scope.pagecontents = data;
+            $scope.trustedHtml = $sce.trustAsHtml($scope.pagecontents);
+        }
       }).
-      success(function (status, data, response, header) {
-
-      })
-      .
       error(function(data, status, headers, config) {
         // called asynchronously if an error occurs
         // or server returns response with an error status.
