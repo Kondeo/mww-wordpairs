@@ -82,7 +82,7 @@ angular.module('starter.controllers', [])
   $scope.loggedIn = function()
   {
     //attempt to grab our cookie
-    var cookie = document.cookie;
+    var cookie = getCookie("session_token");
     if(cookie != "")
     {
       return true;
@@ -236,7 +236,8 @@ angular.module('starter.controllers', [])
 
 .controller('PageCtrl', function($scope, $stateParams, Book, $http, $sce, $state, $ionicHistory) {
     $scope.pagenum = $stateParams.page;
-    $http.get('http://dev.kondeo.com/mwwwordpairs/backend/users.php/page/' + $stateParams.page).
+    var cookie = getCookie("session_token");
+    $http.get('http://dev.kondeo.com/mwwwordpairs/backend/users.php/page/' + $stateParams.page + "/" + cookie).
       success(function(data, status, headers, config) {
         // this callback will be called asynchronously
         // when the response is available
