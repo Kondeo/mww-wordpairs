@@ -8,5 +8,6 @@
         Apache Cordova Team
     </author>
     <content src="index.html" />
+    <allow-navigation href="http://dev.kondeo.com/*" />
     <access origin="*" />
 </widget>
