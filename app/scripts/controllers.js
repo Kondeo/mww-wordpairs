@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $ionicPlatform, $timeout, $location, Book) {
+.controller('AppCtrl', function($scope, $ionicModal, $ionicPopup, $ionicPlatform, $timeout, $location, Book) {
   // Form data for the login modal
   $scope.loginData = {};
 
@@ -26,6 +26,17 @@ angular.module('starter.controllers', [])
   }).then(function(modal) {
     $scope.gotomodal = modal;
   });
+
+  //Alert popup we shall use instead of alerts
+  $scope.showAlert = function(aTitle, aText) {
+   var alertPopup = $ionicPopup.alert({
+     title: aTitle,
+     template: aText
+   });
+   alertPopup.then(function(res) {
+     //Do nothing here
+   });
+ };
 
   // Open the login modal
   $scope.login = function() {
@@ -53,7 +64,7 @@ angular.module('starter.controllers', [])
     $scope.loginFinish = Book.login($scope.loginData, function() {
         //Determine response from server
         if (!$scope.loginFinish.result) {
-            alert("Sorry, that isn't the correct username and password.");
+            $scope.showAlert("Alert!", "Sorry, that isn't the correct username and password.");
         } else {
             //Store the token from the server for future use
             document.cookie = "session_token=" + $scope.loginFinish.result.session_token + "; expires=Sun, 18 Jan 2037 12:00:00 GMT";
@@ -192,17 +203,17 @@ angular.module('starter.controllers', [])
         $scope.registerData.password == null ||
         $scope.registerData.confirmPassword == null)
         {
-            alert("Please complete all fields!");
+            $scope.showAlert("Alert!", "Please complete all fields!");
         }
         //Check for non matching passwords
         else if($scope.registerData.password != $scope.registerData.confirmPassword)
         {
-            alert("The passwords do not match!");
+            $scope.showAlert("Alert!", "The passwords do not match!");
         }
         //Check email
         else if($scope.registerData.email.indexOf("@") == -1)
         {
-            alert("Please enter a valid E-mail Adress!");
+            $scope.showAlert("Alert!", "Please enter a valid E-mail Adress!");
         }
         //Send to backend
         else
@@ -213,11 +224,11 @@ angular.module('starter.controllers', [])
                 if ($scope.registerFinish.error) {
                     if($scope.registerFinish.error.errorid == '22')
                     {
-                        alert("Sorry, that username already exists.");
+                        $scope.showAlert("Alert!", "Sorry, that username already exists.");
                     }
                     else if($scope.registerFinish.error.errorid == '23')
                     {
-                        alert("Sorry, you have not purchased the software.");
+                        $scope.showAlert("Alert!", "Sorry, you have not purchased the software.");
                     }
                 }
                 else
@@ -245,7 +256,7 @@ angular.module('starter.controllers', [])
         {
             if(data.error.errorid == '12')
             {
-                alert("Session token is no longer valid, please login!");
+                $scope.showAlert("Alert!", "Session token is no longer valid, please login!");
                 $scope.login();
             }
         }
