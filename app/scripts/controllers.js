@@ -96,8 +96,7 @@ angular.module('starter.controllers', [])
   // at the bottom of your controller
   //Check if we are logged in, if not, force the login popup
     $scope.init = function () {
-
-        if(!$scope.loggedIn() && $scope.register)
+        if(!$scope.loggedIn() && !$scope.register)
         {
             $scope.modal.show();
         }
