@@ -7,9 +7,6 @@ angular.module('starter.controllers', [])
   //Form data for the go to page
   $scope.page = {};
 
-  //Boolean to check if we are register page
-  $scope.register = false;
-
   // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/login.html', {
     backdropClickToClose: false,
@@ -107,7 +104,7 @@ angular.module('starter.controllers', [])
   // at the bottom of your controller
   //Check if we are logged in, if not, force the login popup
     $scope.init = function () {
-        if(!$scope.loggedIn() && !$scope.register)
+        if(!$scope.loggedIn() && $location.path() != "/app/register")
         {
             $scope.modal.show();
         }
@@ -191,15 +188,12 @@ angular.module('starter.controllers', [])
     // Form data for the register controller
     $scope.registerData = {};
 
-    //Set register to true
-    $scope.register = true;
-
     // Perform the login action when the user submits the login form
     $scope.doRegister = function() {
 
         //Check for empty fields
         if($scope.registerData.email == null ||
-        $scope.registerData.username == null ||
+        $scopeData.username == null ||
         $scope.registerData.password == null ||
         $scope.registerData.confirmPassword == null)
         {
@@ -236,7 +230,6 @@ angular.module('starter.controllers', [])
                     //Store the token from the server for future use
                     localStorage.setItem("session_token", $scope.registerFinish.result.session_token);
                     $location.path("#/");
-                    $scope.register = false;
                 }
             });
         }
