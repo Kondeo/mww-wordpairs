@@ -1,5 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.Kondeo.Wordpairs" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <access origin="*" />
+    <allow-intent href="*" />
+    <allow-navigation href="*" />
     <name>WordPairs EBook</name>
     <description>
         Ebook for Wordpairs
@@ -8,6 +11,4 @@
         Kondeo Software Team
     </author>
     <content src="index.html" />
-    <allow-navigation href="*" />
-    <access origin="*" />
 </widget>
