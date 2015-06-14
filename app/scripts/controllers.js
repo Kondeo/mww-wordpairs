@@ -67,7 +67,7 @@ angular.module('starter.controllers', [])
             $scope.showAlert("Alert!", "Sorry, that isn't the correct username and password.");
         } else {
             //Store the token from the server for future use
-            document.cookie = "session_token=" + $scope.loginFinish.result.session_token + "; expires=Sun, 18 Jan 2037 12:00:00 GMT";
+            localStorage.setItem("session_token", $scope.loginFinish.result.session_token);
             $scope.closeLogin();
         }
     });
@@ -93,7 +93,7 @@ angular.module('starter.controllers', [])
   $scope.loggedIn = function()
   {
     //attempt to grab our cookie
-    var cookie = getCookie("session_token");
+    var cookie = localStorage.getItem("session_token");
     if(cookie != "")
     {
       return true;
@@ -234,7 +234,7 @@ angular.module('starter.controllers', [])
                 else
                 {
                     //Store the token from the server for future use
-                    document.cookie = "session_token=" + $scope.registerFinish.result.session_token + "; expires=Sun, 18 Jan 2037 12:00:00 GMT";
+                    localStorage.setItem("session_token", $scope.registerFinish.result.session_token);
                     $location.path("#/");
                     $scope.register = false;
                 }
@@ -246,7 +246,7 @@ angular.module('starter.controllers', [])
 
 .controller('PageCtrl', function($scope, $stateParams, Book, $location, $http, $sce, $state, $ionicHistory) {
     $scope.pagenum = $stateParams.page;
-    var cookie = getCookie("session_token");
+    var cookie = localStorage.getItem("session_token");
     $http.get('http://dev.kondeo.com/mwwwordpairs/backend/users.php/page/' + $stateParams.page + "/" + cookie).
       success(function(data, status, headers, config) {
         // this callback will be called asynchronously
