@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $ionicPopup, $ionicPlatform, $timeout, $location, Book) {
+.controller('AppCtrl', function($scope, $ionicModal, $ionicPopup, $ionicPlatform, $timeout, $location, $window, Book) {
   // Form data for the login modal
   $scope.loginData = {};
 
@@ -66,6 +66,8 @@ angular.module('starter.controllers', [])
             //Store the token from the server for future use
             localStorage.setItem("session_token", $scope.loginFinish.result.session_token);
             $scope.closeLogin();
+            //Reload the page
+            $window.location.reload(true);
         }
     });
   };
