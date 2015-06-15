@@ -7,6 +7,9 @@ angular.module('starter.controllers', [])
   //Form data for the go to page
   $scope.page = {};
 
+  //Variable to catch our current errors
+  $scope.errors = {};
+
   // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/login.html', {
     backdropClickToClose: false,
@@ -252,6 +255,12 @@ angular.module('starter.controllers', [])
             if(data.error.errorid == '12')
             {
                 $scope.showAlert("Alert!", "Session token is no longer valid, please login!");
+
+                //Set our current error
+                $scope.errors[0] = 12;
+
+                alert($scope.errors[0]);
+
                 $scope.login();
             }
         }
@@ -260,6 +269,9 @@ angular.module('starter.controllers', [])
             //Then display the page
             $scope.pagecontents = data;
             $scope.trustedHtml = $sce.trustAsHtml($scope.pagecontents);
+
+            //Set our current error to none
+            $scope.errors[0] = -1;
         }
       }).
       error(function(data, status, headers, config) {
