@@ -259,8 +259,6 @@ angular.module('starter.controllers', [])
                 //Set our current error
                 $scope.errors[0] = 12;
 
-                alert($scope.errors[0]);
-
                 $scope.login();
             }
         }
