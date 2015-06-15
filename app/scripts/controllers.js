@@ -79,7 +79,7 @@ angular.module('starter.controllers', [])
   $scope.goToPageNum = function() {
     //Go to the desired url
     $scope.temp = 'app/page/' + $scope.page.number;
-    location.path($scope.temp);
+    $location.path($scope.temp);
 
     //Now close the modal
     $scope.gotomodal.hide();
