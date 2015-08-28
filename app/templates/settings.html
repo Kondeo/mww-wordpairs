@@ -1,5 +1,40 @@
 <ion-view view-title="Application Settings">
   <ion-content>
+    <ul class="list">
 
+      <li class="item item-toggle" ng-if="platformIOS">
+        Easy Reading Page Color
+        <label class="toggle toggle-assertive">
+          <input type="checkbox" ng-model="easyReading">
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+        </label>
+      </li>
+      <li class="item" ng-if="!platformIOS">
+        <div style="vertical-align: text-bottom">Easy Reading Page Color</div>
+        <div class="onoffswitch">
+
+          <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" ng-model="easyReading" checked>
+          <label class="onoffswitch-label" for="myonoffswitch">
+            <div class="onoffswitch-inner">
+              <div class="onoffswitch-active">
+                <div class="onoffswitch-switch">ON</div>
+              </div>
+              <div class="onoffswitch-inactive">
+                <div class="onoffswitch-switch">OFF</div>
+              </div>
+            </div>
+          </label>
+        </div>
+        </div>
+      </li>
+      <li class="item">
+        Your platform is:
+        <d ng-if="platformAndroid">Android</d>
+        <d ng-if="platformIOS">IOS</d>
+        <d ng-if="!platformIOS && !platformAndroid">Web</d>
+      </li>
+    </ul>
   </ion-content>
 </ion-view>

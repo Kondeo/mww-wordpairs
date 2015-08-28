@@ -1,6 +1,11 @@
 angular.module('starter.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, $ionicPopup, $ionicPlatform, $timeout, $location, $window, Book) {
+  //Platform detection
+  $scope.platformIOS = ionic.Platform.isIOS() || ionic.Platform.isIPad();
+  $scope.platformAndroid = ionic.Platform.isAndroid();
+  $scope.easyReading = true;
+
   // Form data for the login modal
   $scope.loginData = {};
 
