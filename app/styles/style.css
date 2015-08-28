@@ -1,4 +1,8 @@
 /* Empty. Add your own CSS if you like */
+ion-view {
+    background-color: lightgray !important;
+}
+
 .button-next-icon {
     vertical-align: text-bottom !important;
     padding-left: 5px !important;
