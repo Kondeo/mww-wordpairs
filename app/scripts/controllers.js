@@ -285,4 +285,8 @@ angular.module('starter.controllers', [])
     $scope.goToPrev = function(){
         $ionicHistory.goBack();
     }
+})
+
+.controller('SettingsCtrl', function($scope) {
+
 });
