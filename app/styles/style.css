@@ -1,19 +1,10 @@
 /* Empty. Add your own CSS if you like */
-.button-next {
-    position: absolute;
-    right: 0px;
-    bottom: 0px;
-    margin: 20px;
+.button-next-icon {
+    vertical-align: text-bottom !important;
+    padding-left: 5px !important;
 }
 
-.button-back {
-    position: absolute;
-    left: 0px;
-    bottom: 0px;
-    margin: 20px;
-}
-
-.book-content {
-    padding: 10px !important;
-    padding-bottom: 40px !important;
+.button-back-icon {
+    vertical-align: text-bottom !important;
+    padding-right: 5px !important;
 }
