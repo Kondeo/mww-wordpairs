@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.Kondeo.Wordpairs" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.Kondeo.Wordpairs" version="0.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <access origin="*" />
     <allow-intent href="*" />
     <allow-navigation href="*" />
@@ -7,7 +7,7 @@
     <description>
         Ebook for Wordpairs
     </description>
-    <author email="poyourowit@gmail.com" href="http://kondeo.com">
+    <author email="julian@kondeo.com" href="http://kondeo.com">
         Kondeo Software Team
     </author>
     <content src="index.html" />
