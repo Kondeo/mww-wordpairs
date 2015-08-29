@@ -205,7 +205,7 @@ angular.module('starter.controllers', [])
 
         //Check for empty fields
         if($scope.registerData.email == null ||
-        $scopeData.username == null ||
+        $scope.registerData.username == null ||
         $scope.registerData.password == null ||
         $scope.registerData.confirmPassword == null)
         {
