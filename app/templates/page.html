@@ -1,7 +1,7 @@
 <ion-view view-title="Page {{pagenum}}">
   <ion-content>
     <div class="card">
-      <div class="item item-text-wrap">
+      <div class="item item-text-wrap" ng-class="{'easy-reading': settings.easyReading}">
           <div class="book-content" ng-bind-html="trustedHtml"></div>
       </div>
       <div class="item tabs tabs-secondary tabs-icon-left">

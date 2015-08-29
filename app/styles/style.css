@@ -1,15 +1,20 @@
 /* Empty. Add your own CSS if you like */
-
 ion-view {
   background-color: lightgray !important;
 }
+
 .button-next-icon {
   vertical-align: text-bottom !important;
   padding-left: 5px !important;
 }
+
 .button-back-icon {
   vertical-align: text-bottom !important;
   padding-right: 5px !important;
+}
+
+.easy-reading {
+    background-color: #FFFEEE;
 }
 
 /* Android On/Off Switch */
