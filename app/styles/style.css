@@ -11,100 +11,41 @@ ion-view {
   vertical-align: text-bottom !important;
   padding-right: 5px !important;
 }
-body {
-  background: #eff;
-}
 
 /* Android On/Off Switch */
 .onoffswitch {
-  position: absolute;
-  right: 11px;
-  top: 11px;
-  width: 100px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
+    position: absolute; width: 55px; right: 11px; top: calc(50% - 10px);
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
 }
 .onoffswitch-checkbox {
-  display: none;
+    display: none;
 }
 .onoffswitch-label {
-  display: block;
-  overflow: hidden;
-  cursor: pointer;
-  border: 0px solid #999999;
-  border-radius: 0px;
+    display: block; overflow: hidden; cursor: pointer;
+    height: 20px; padding: 0; line-height: 20px;
+    border: 0px solid #FFFFFF; border-radius: 30px;
+    background-color: #9E9E9E;
 }
-.onoffswitch-inner {
-  width: 200%;
-  margin-left: -100%;
-  -moz-transition: margin 0.3s ease-in 0s;
-  -webkit-transition: margin 0.3s ease-in 0s;
-  -o-transition: margin 0.3s ease-in 0s;
-  transition: margin 0.3s ease-in 0s;
+.onoffswitch-label:before {
+    content: "";
+    display: block; width: 30px; margin: -5px;
+    background: #FFFFFF;
+    position: absolute; top: 0; bottom: 0;
+    right: 31px;
+    border-radius: 30px;
+    box-shadow: 0 6px 12px 0px #757575;
 }
-.onoffswitch-inner > div {
-  float: left;
-  position: relative;
-  width: 50%;
-  height: 30px;
-  padding: 0;
-  line-height: 30px;
-  font-size: 14px;
-  color: white;
-  font-family: Trebuchet, Arial, sans-serif;
-  font-weight: bold;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+.onoffswitch-checkbox:checked + .onoffswitch-label {
+    background-color: #42A5F5;
 }
-.onoffswitch-inner .onoffswitch-active {
-  padding-left: 15px;
-  background-color: #C2C2C2;
-  color: #FFFFFF;
-}
-.onoffswitch-inner .onoffswitch-inactive {
-  padding-right: 15px;
-  background-color: #C2C2C2;
-  color: #FFFFFF;
-  text-align: right;
-}
-.onoffswitch-switch {
-  width: 40px;
-  margin: 0px;
-  text-align: center;
-  border: 0px solid #999999;
-  border-radius: 0px;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-}
-.onoffswitch-active .onoffswitch-switch {
-  background: #27A1CA;
-  left: 0;
-}
-.onoffswitch-inactive .onoffswitch-switch {
-  background: #A1A1A1;
-  right: 0;
-}
-.onoffswitch-active .onoffswitch-switch:before {
-  content: " ";
-  position: absolute;
-  top: 0;
-  left: 40px;
-  border-style: solid;
-  border-color: #27A1CA transparent transparent #27A1CA;
-  border-width: 15px 10px;
-}
-.onoffswitch-inactive .onoffswitch-switch:before {
-  content: " ";
-  position: absolute;
-  top: 0;
-  right: 40px;
-  border-style: solid;
-  border-color: transparent #A1A1A1 #A1A1A1 transparent;
-  border-width: 15px 10px;
+.onoffswitch-checkbox:checked + .onoffswitch-label, .onoffswitch-checkbox:checked + .onoffswitch-label:before {
+   border-color: #42A5F5;
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
-  margin-left: 0;
+    margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label:before {
+    right: 0px;
+    background-color: #2196F3;
+    box-shadow: 3px 6px 18px 0px rgba(0, 0, 0, 0.2);
 }

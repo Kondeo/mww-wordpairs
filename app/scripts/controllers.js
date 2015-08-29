@@ -4,7 +4,9 @@ angular.module('starter.controllers', [])
   //Platform detection
   $scope.platformIOS = ionic.Platform.isIOS() || ionic.Platform.isIPad();
   $scope.platformAndroid = ionic.Platform.isAndroid();
-  $scope.easyReading = true;
+
+  $scope.settings = {};
+  $scope.settings.easyReading = localStorage.getItem("easyReading") === "true";
 
   // Form data for the login modal
   $scope.loginData = {};
@@ -293,5 +295,10 @@ angular.module('starter.controllers', [])
 })
 
 .controller('SettingsCtrl', function($scope) {
+
+
+    $scope.saveSettings = function(){
+        localStorage.setItem("easyReading", $scope.settings.easyReading);
+    }
 
 });

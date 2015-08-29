@@ -5,7 +5,7 @@
       <li class="item item-toggle" ng-if="platformIOS">
         Easy Reading Page Color
         <label class="toggle toggle-assertive">
-          <input type="checkbox" ng-model="easyReading">
+          <input type="checkbox" ng-model="settings.easyReading" ng-change="saveSettings()">
           <div class="track">
             <div class="handle"></div>
           </div>
@@ -14,18 +14,8 @@
       <li class="item" ng-if="!platformIOS">
         <div style="vertical-align: text-bottom">Easy Reading Page Color</div>
         <div class="onoffswitch">
-
-          <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" ng-model="easyReading" checked>
-          <label class="onoffswitch-label" for="myonoffswitch">
-            <div class="onoffswitch-inner">
-              <div class="onoffswitch-active">
-                <div class="onoffswitch-switch">ON</div>
-              </div>
-              <div class="onoffswitch-inactive">
-                <div class="onoffswitch-switch">OFF</div>
-              </div>
-            </div>
-          </label>
+          <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" ng-model="settings.easyReading" ng-change="saveSettings()">
+          <label class="onoffswitch-label" for="myonoffswitch"></label>
         </div>
         </div>
       </li>
