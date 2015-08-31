@@ -249,7 +249,7 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('PageCtrl', function($scope, $stateParams, Book, $location, $http, $sce, $state, $ionicHistory) {
+.controller('PageCtrl', function($scope, $stateParams, Book, $location, $http, $sce, $state, $ionicHistory, $ionicScrollDelegate) {
     $scope.pagenum = $stateParams.page;
     var cookie = localStorage.getItem("session_token");
     $http.get('http://dev.kondeo.com/mwwwordpairs/backend/users.php/page/' + $stateParams.page + "/" + cookie).
@@ -283,6 +283,7 @@ angular.module('starter.controllers', [])
         // called asynchronously if an error occurs
         // or server returns response with an error status.
     });
+
     $scope.goToNext = function(){
         $scope.temp = parseInt($stateParams.page) + 1;
         $scope.temp = 'app/page/' + $scope.temp;
@@ -291,6 +292,26 @@ angular.module('starter.controllers', [])
     }
     $scope.goToPrev = function(){
         $ionicHistory.goBack();
+    }
+
+    document.onkeydown = function(e) {
+        //Down arrow key
+        if(e.keyCode == 40) {
+            $ionicScrollDelegate.scrollBottom(true);
+        }
+        //Up arrow key
+        if(e.keyCode == 38) {
+            $ionicScrollDelegate.scrollTop(true);
+        }
+        //Right arrow key
+        if(e.keyCode == 39) {
+            $scope.goToNext();
+            console.log("right")
+        }
+        //Left arrow key
+        if(e.keyCode == 37) {
+            $scope.goToPrev();
+        }
     }
 })
 
