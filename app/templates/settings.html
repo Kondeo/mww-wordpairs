@@ -25,6 +25,10 @@
         <d ng-if="platformIOS">IOS</d>
         <d ng-if="!platformIOS && !platformAndroid">Web</d>
       </li>
+      <li class="item" ng-if="!platformIOS && !platformAndroid">
+        Use ctrl+D on the index page to bookmark this app.
+      </li>
+
     </ul>
   </ion-content>
 </ion-view>
