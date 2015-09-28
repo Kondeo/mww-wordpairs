@@ -295,6 +295,14 @@ angular.module('starter.controllers', [])
     $scope.goToPrev = function(){
         $ionicHistory.goBack();
     }
+
+    $scope.scrollBottom = function(){
+        $ionicScrollDelegate.scrollBottom(true);
+    }
+    
+    $scope.scrollTop = function(){
+        $ionicScrollDelegate.scrollTop(true);
+    }
 })
 
 .controller('SettingsCtrl', function($scope) {
