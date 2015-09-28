@@ -285,33 +285,15 @@ angular.module('starter.controllers', [])
     });
 
     $scope.goToNext = function(){
-        $scope.temp = parseInt($stateParams.page) + 1;
-        $scope.temp = 'app/page/' + $scope.temp;
+        var temp = parseInt($stateParams.page) + 1;
+        console.log(temp)
+        temp = 'app/page/' + temp;
 
-        $location.path($scope.temp);
+        $location.path(temp);
     }
+
     $scope.goToPrev = function(){
         $ionicHistory.goBack();
-    }
-
-    document.onkeydown = function(e) {
-        //Down arrow key
-        if(e.keyCode == 40) {
-            $ionicScrollDelegate.scrollBottom(true);
-        }
-        //Up arrow key
-        if(e.keyCode == 38) {
-            $ionicScrollDelegate.scrollTop(true);
-        }
-        //Right arrow key
-        if(e.keyCode == 39) {
-            $scope.goToNext();
-            console.log("right")
-        }
-        //Left arrow key
-        if(e.keyCode == 37) {
-            $scope.goToPrev();
-        }
     }
 })
 
