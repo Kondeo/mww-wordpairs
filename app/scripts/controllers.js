@@ -249,7 +249,7 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('PageCtrl', function($scope, $stateParams, Book, $location, $http, $sce, $state, $ionicHistory) {
+.controller('PageCtrl', function($scope, $stateParams, Book, $location, $http, $sce, $state, $ionicHistory, $ionicScrollDelegate) {
     $scope.pagenum = $stateParams.page;
     var cookie = localStorage.getItem("session_token");
     $http.get('http://dev.kondeo.com/mwwwordpairs/backend/users.php/page/' + $stateParams.page + "/" + cookie).
@@ -283,14 +283,25 @@ angular.module('starter.controllers', [])
         // called asynchronously if an error occurs
         // or server returns response with an error status.
     });
-    $scope.goToNext = function(){
-        $scope.temp = parseInt($stateParams.page) + 1;
-        $scope.temp = 'app/page/' + $scope.temp;
 
-        $location.path($scope.temp);
+    $scope.goToNext = function(){
+        var temp = parseInt($stateParams.page) + 1;
+        console.log(temp)
+        temp = 'app/page/' + temp;
+
+        $location.path(temp);
     }
+
     $scope.goToPrev = function(){
         $ionicHistory.goBack();
+    }
+
+    $scope.scrollBottom = function(){
+        $ionicScrollDelegate.scrollBottom(true);
+    }
+    
+    $scope.scrollTop = function(){
+        $ionicScrollDelegate.scrollTop(true);
     }
 })
 

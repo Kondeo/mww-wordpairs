@@ -2,10 +2,11 @@
   "name": "MwwWordpairs",
   "version": "0.0.0",
   "dependencies": {
-    "ionic": "v1.0.0-rc.3",
+    "angular-animate": "1.2.16",
+    "angular-hotkeys": "chieffancypants/angular-hotkeys#~1.6.0",
     "angular-resource": "1.2.16",
     "angular-route": "1.2.16",
-    "angular-animate": "1.2.16",
+    "ionic": "v1.0.0-rc.3",
     "ngCordova": "v0.1.14-alpha"
   },
   "devDependencies": {
